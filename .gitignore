@@ -1,0 +1,37 @@
+# Byte-compiled / cached
+__pycache__/
+*.py[c]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# JAX / compiled artifacts
+*.so
+.build/
+
+# Data (large, not committed)
+data/
+data/raw/
+data/*.zip
+results/splits.json
+results/results.json
+results/checkpoints/
+results/logs/
+results/figures/
+results/smoke_do_not_cite/
+!results/.keep
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+
+# Editors
+.idea/
+.vscode/
+*.swp

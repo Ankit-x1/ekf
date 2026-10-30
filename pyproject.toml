@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diffekf"
+version = "0.1.0"
+description = "Learned differentiable correction for a multiplicative error-state EKF attitude filter (6-axis IMU, no magnetometer)"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Ankit Karki", email = "ankit@example.edu"}]
+license = {text = "MIT"}
+keywords = ["attitude estimation", "EKF", "IMU", "quaternion", "JAX", "optax"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "numpy>=1.26,<3",
+    "scipy>=1.11",
+    "jax>=0.4.13",
+    "jaxlib>=0.4.13",
+    "optax>=0.2.0",
+    "h5py>=3.7",
+    "typer>=0.9",
+    "rich>=13",
+]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.8", "mypy>=1.8", "pytest>=8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["diffekf*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "D", "B", "UP"]
+ignore = ["B008", "D100", "D101", "D102", "D103", "D104", "D105", "D205", "D401", "D417"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
